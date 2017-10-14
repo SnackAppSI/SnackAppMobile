@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="1.8in"
+    android:background="@drawable/side_nav_bar"
+    android:gravity="bottom"
+    android:orientation="vertical"
+
+
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/SnackAppPrincipal">
+
+        <TextView
+            android:layout_width="380px"
+            android:layout_height="120px"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="55px"
+            android:background="@drawable/snackk"
+            android:textStyle="bold|italic"
+            android:layout_gravity="center_horizontal" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="7px"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="Bem vindo(a),"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:id="@+id/txtNome"
+            android:textSize="70px"
+            android:text="USER"/>
+
+        <ImageView
+            android:layout_width="1in"
+            android:layout_height="1in"
+            android:background="@drawable/fotoperfil"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="matrix" />
+</LinearLayout>
+
+    </LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/minhaConta"
+
+
+            android:title="Perfil" />
+      <!--  <item
+            android:id="@+id/pagamentos"
+
+            android:title="Pagamentos" />
+
+
+        <item
+            android:id="@+id/pedidos"
+            android:title="Pedidos" />
+
+            -->
+
+        <item
+            android:id="@+id/logoff"
+            android:title="Logout" />
+
+    </group>
+
+
+
+</menu>

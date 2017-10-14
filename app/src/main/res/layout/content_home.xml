@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundotelalogin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="snackapp.com.br.snackapp.HomeActivity"
+    tools:showIn="@layout/app_bar_home">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/logo1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <Button
+            android:layout_marginTop="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/btnFazerPedido"
+            android:text="@string/txtBtnFazerPedido"
+            android:layout_gravity="center_vertical"
+            android:background="#f22a00"
+            android:textStyle="bold|italic"
+            android:textColor="#f5f4f4"
+            android:textSize="20sp"
+            android:onClick="fazerPedido"/>
+
+        <Button
+            android:layout_marginTop="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/btnAcompanharPedido"
+            android:text="@string/txtBtnAcompanharReservar"
+            android:layout_gravity="center_vertical"
+            android:background="#F26722"
+            android:textStyle="bold|italic"
+            android:textColor="#f5f4f4"
+            android:textSize="20sp"
+            android:onClick="acompanharReservas"/>
+    </LinearLayout>
+
+</RelativeLayout>
