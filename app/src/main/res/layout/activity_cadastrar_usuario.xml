@@ -55,17 +55,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/nomecad"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Nome: "
                 android:textColor="#FFFFFF"
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/txtNome"
+                android:id="@+id/txnome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffffff"/>
+                android:backgroundTint="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
@@ -75,59 +83,18 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data Nasc.: "
-                android:textColor="#FFFFFF"
-                android:textSize="18dp" />
-
-            <EditText
-                android:id="@+id/txtDataNasc"
+                android:id="@+id/telcad"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#ffffff" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:text="Telefone:"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtTelefone"
-
-                android:inputType="number"
-                android:backgroundTint="#ffffff" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CPF: "
+                android:text="Telefone:"
                 android:textColor="#FFFFFF"
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/txtCPF"
+                android:id="@+id/txtel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+
                 android:backgroundTint="#ffffff" />
 
         </LinearLayout>
@@ -138,14 +105,36 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/logincad"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/txLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/senhacad"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Senha: "
                 android:textColor="#FFFFFF"
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/txtSenha"
+                android:id="@+id/txsenha"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#ffffff" />
@@ -175,14 +164,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRÓXIMO"
+            android:layout_gravity="center"
+            android:onClick="postUser"
+            android:text="Confirmar Cadastro"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="28dp"
-            android:onClick="cadastrarCartao"
-            android:layout_gravity="center"/>
+            android:textSize="28dp" />
 
     </LinearLayout>
 
