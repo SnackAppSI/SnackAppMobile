@@ -1,4 +1,39 @@
 <resources>
+    <string name="txtBtnReclamacao">RECLAMAÇÃO</string>
+
+    <string name="txtBtnCancelar">CANCELAR</string>
+
+    <string name="txtCardapio">CARDÁPIO</string>
+
+    <string name="txtLanches">Lanches</string>
+
+    <string name="txtSalgados">Salgados</string>
+
+    <string name="txtDoces">Doces</string>
+
+    <string name="txtBebidas">Bebidas</string>
+
+    <string name="BtnConfirmar">Confirmar</string>
+
+    <string name="BtnValorTotal">Valor Total</string>
+
+    <string name="txtCombos">Combos</string>
+
+    <string name="txtConfirmarCancelamento">Você deseja realmente cancelar os itens selecionados?</string>
+
+
+    <string name="BtnProximo">Próximo</string>
+
+    <string name="txtSim">SIM</string>
+    <string name="txtNao">NÃO</string>
+
+    <string name="txtBtnSugestao">SUGESTÃO</string>
+
+    <string name="txtBtnDiversos">DIVERSOS</string>
+
+    <string name="txtBtnEnviar">ENVIAR</string>
+
+
     <string name="app_name">SnackApp</string>
     <string name="title_activity_home">HomeActivity</string>
 

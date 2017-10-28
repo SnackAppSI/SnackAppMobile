@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/fundotelalogin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="snackapp.com.br.snackapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75px"
+        android:layout_gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+
+            android:id="@+id/login"
+            android:background="@drawable/fundoll"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="18px"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="150px"
+                    android:text=""
+                    android:background="@drawable/snackappimg"
+                    android:textSize="45px"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center"/>
+
+
+            </LinearLayout>
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Pedidos"
+                        android:textColor="#000000"
+                        android:background="#ffffff"
+                        android:textSize="0.1in"/>
+
+                    <View
+                        android:layout_width="15px"
+                        android:layout_height="15dp"/>
+
+                    <TextView
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Pedido 1"
+                        android:textColor="#000000"
+                        android:id="@+id/txtPedido1"
+                        android:textSize="0.1in"/>
+
+                    <View
+                        android:layout_width="15px"
+                        android:layout_height="15dp"/>
+
+                    <TextView
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Pedido 2"
+                        android:textColor="#000000"
+                        android:id="@+id/txtPedido2"
+                        android:textSize="0.1in"/>
+
+                    <View
+                        android:layout_width="15px"
+                        android:layout_height="15dp"/>
+
+                    <TextView
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Pedido 3"
+                        android:textColor="#000000"
+                        android:id="@+id/txtPedido3"
+                        android:textSize="0.1in"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Hora Compra"
+                            android:textColor="#000000"
+                            android:background="#ffffff"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 1"
+                            android:textColor="#000000"
+                            android:id="@+id/txtHoraCompra1"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 2"
+                            android:textColor="#000000"
+                            android:id="@+id/txtHoraCompra2"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 3"
+                            android:textColor="#000000"
+                            android:id="@+id/txtHoraCompra3"
+                            android:textSize="0.1in"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Tempo Cancelamento"
+                            android:textColor="#000000"
+                            android:background="#ffffff"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 1"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoCancelamento1"
+                            android:textSize="0.1in"/>
+
+                        <View
+                        android:layout_width="15px"
+                        android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 2"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoCancelamento2"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 3"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoCancelamento3"
+                            android:textSize="0.1in"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Tempo Entrega"
+                            android:textColor="#000000"
+                            android:background="#ffffff"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 1"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoEntrega1"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 2"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoEntrega2"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="15dp"/>
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Pedido 3"
+                            android:textColor="#000000"
+                            android:id="@+id/txtTempoEntrega3"
+                            android:textSize="0.1in"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text="Cancelamento"
+                            android:textColor="#000000"
+                            android:background="#ffffff"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="7dp"/>
+
+                        <CheckBox
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+
+                            android:textColor="#000000"
+                            android:id="@+id/checkbox1"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="7dp"/>
+
+                        <CheckBox
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#000000"
+                            android:id="@+id/checkbox2"
+                            android:textSize="0.1in"/>
+
+                        <View
+                            android:layout_width="15px"
+                            android:layout_height="7dp"/>
+
+                        <CheckBox
+                            android:layout_width="1in"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#000000"
+                            android:id="@+id/checkbox3"
+                            android:textSize="0.1in"/>
+
+                    </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+            </HorizontalScrollView>
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="150dp"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:background="#00FF00"
+                    android:id="@+id/btnCancelarPedidos"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp"
+                    android:textStyle="bold|italic"
+                    android:text="@string/txtBtnCancelar"
+                    android:onClick="cancelar"
+                    android:layout_marginTop="2dp"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>

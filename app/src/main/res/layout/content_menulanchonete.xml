@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/fundotelalogin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="snackapp.com.br.snackapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75px"
+        android:layout_gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+
+            android:id="@+id/login"
+            android:background="@drawable/fundoll"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="18px"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="150px"
+                    android:text="MENU LANCHONETE"
+                    android:gravity="center"
+                    android:textStyle="bold|italic"
+                    android:background="@drawable/menulanchonetelogo"
+                    android:textSize="29dp"
+                    android:textColor="#ffffff"
+                    android:textAlignment="textStart"/>
+
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="35dp"
+                android:textStyle="bold|italic"
+                android:background="#f22a00"
+                android:text="@string/txtCardapio"/>
+
+            <View
+                android:layout_width="15dp"
+                android:layout_height="35dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <Button
+
+                    android:layout_width="1in"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtLanches"
+                    android:background="#f22a00"
+                    android:textStyle="bold|italic"
+                    android:textColor="#f5f4f4"
+                    android:textSize="0.1in"
+                    android:onClick="proximaTela"/>
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="5dp"/>
+
+                    <Button
+
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtSalgados"
+                        android:background="#f22a00"
+                        android:textStyle="bold|italic"
+                        android:textColor="#f5f4f4"
+                        android:textSize="0.1in"
+                        android:onClick="proximaTela"/>
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="5dp"/>
+
+                    <Button
+
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtDoces"
+                        android:background="#f22a00"
+                        android:textStyle="bold|italic"
+                        android:textColor="#f5f4f4"
+                        android:textSize="0.1in"
+                        android:onClick="proximaTela"/>
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="5dp"/>
+
+                    <Button
+
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtBebidas"
+                        android:background="#f22a00"
+                        android:textStyle="bold|italic"
+                        android:textColor="#f5f4f4"
+                        android:textSize="0.1in"
+                        android:onClick="proximaTela"/>
+
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="5dp"/>
+
+                    <Button
+
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtCombos"
+                        android:background="#f22a00"
+                        android:textStyle="bold|italic"
+                        android:textColor="#f5f4f4"
+                        android:textSize="0.1in"
+                        android:onClick="proximaTela"/>
+
+                    <TextView
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/menulanchonete4"/>
+
+
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="1in"
+                        android:layout_height="0.8in"
+                        android:src="@drawable/menulanchonete2"/>
+                    <ImageView
+                        android:layout_width="1in"
+                        android:layout_height="1in"
+                        android:src="@drawable/menulanchonete1"/>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>

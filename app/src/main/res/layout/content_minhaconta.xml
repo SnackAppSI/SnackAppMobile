@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fundotelalogin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    >
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/logo1"/>
+
+
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <Button
+            android:layout_marginTop="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/btnReclamacao"
+            android:text="@string/txtBtnReclamacao"
+            android:layout_gravity="center_vertical"
+            android:background="#f22a00"
+            android:textStyle="bold|italic"
+            android:textColor="#f5f4f4"
+            android:textSize="40sp"
+            android:onClick="reclamacao"/>
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/btnSugestao"
+            android:text="@string/txtBtnSugestao"
+            android:layout_gravity="center_vertical"
+            android:background="#f22a00"
+            android:textStyle="bold|italic"
+            android:textColor="#f5f4f4"
+            android:textSize="40dp"
+            android:onClick="sugestao"/>
+
+
+        <View
+            android:layout_width="0px"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/btnDiversos"
+            android:text="@string/txtBtnDiversos"
+            android:layout_gravity="center_vertical"
+            android:background="#f22a00"
+            android:textStyle="bold|italic"
+            android:textColor="#f5f4f4"
+            android:textSize="40dp"
+            android:onClick="diversos"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:background="#00FF00"
+            android:id="@+id/btnEnviar"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:textStyle="bold|italic"
+            android:text="@string/txtBtnEnviar"
+            android:layout_marginTop="250dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>
