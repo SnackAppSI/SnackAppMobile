@@ -11,18 +11,35 @@
         android:theme="@style/AppTheme.NoActionBar">
 
         <!-- AQUI É ONDE VOCÊ ESCOLHE QUAL VAI SER A ACTIVITY INICIAL -->
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" >
-        <!-- / -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <!-- / -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastrarCartaoActivity" android:screenOrientation="portrait" />
-        <activity android:name=".HomeActivity" android:screenOrientation="portrait" />
-        <activity android:name=".CadastrarUsuarioActivity" android:screenOrientation="portrait" />
-        <activity android:name=".TermoDeUsoActivity" android:screenOrientation="portrait" ></activity>
+        <activity
+            android:name=".CadastrarCartaoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CadastrarUsuarioActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TermoDeUsoActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MinhaContaActivity" />
+        <activity android:name=".AcompanhaReservaActivity" />
+        <activity android:name=".ConfirmarCancelamentoActivity" />
+        <activity android:name=".FazerPedidoActivity" />
+        <activity android:name=".MenuLanchoneteActivity" />
+        <activity android:name=".ListaProdutosActivity"></activity>
     </application>
 
 </manifest>

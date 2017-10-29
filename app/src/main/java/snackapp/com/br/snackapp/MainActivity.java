@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verLogin(View view) {
-        String url = "http://snackapp.tk/usuario.php";
+        /*String url = "http://snackapp.tk/usuario.php";
         EditText editnome = (EditText) findViewById(R.id.txnome);
         EditText edittel = (EditText) findViewById(R.id.txtel);
         EditText editlogin = (EditText) findViewById(R.id.txLogin);
@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             this.recreate();
-        }
+        }*/
 
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
 
     }
 }
