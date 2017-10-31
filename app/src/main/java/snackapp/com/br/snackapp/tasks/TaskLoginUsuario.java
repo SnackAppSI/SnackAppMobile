@@ -1,7 +1,11 @@
 package snackapp.com.br.snackapp.tasks;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -16,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import snackapp.com.br.snackapp.HomeActivity;
 import snackapp.com.br.snackapp.MainActivity;
 import snackapp.com.br.snackapp.classes.Usuario;
 
@@ -29,16 +34,18 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
     public String cadtel;
     public String cadlogin;
     public String cadsenha;
-
+    public Context context;
     //public ProgressBar progressBar;
 
-    public TaskLoginUsuario(String snome, String stel, String slogin, String ssenha){
+    public TaskLoginUsuario(Context context,String snome, String stel, String slogin, String ssenha) {
+        this.context = context;
         this.cadnome = snome;
         this.cadtel = stel;
         this.cadlogin = slogin;
         this.cadsenha = ssenha;
 
     }
+
     private static String convertInputStreamToString(InputStream inputStream) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         String line = "";
@@ -49,6 +56,7 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
         inputStream.close();
         return result;
     }
+
     @Override
     protected String doInBackground(String... params) {
 
@@ -119,34 +127,65 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        //txtRetorno.setText(s);
-
-
         JSONObject objjson = null;
         try {
+
             objjson = new JSONObject(s);
-            Usuario user = new Usuario();
-            user.setLogin(objjson.getString("login"));
-            user.setSenha(objjson.getString("senha"));
-            MainActivity ma = new MainActivity();
-            if ((user.getLogin().equals("")==true)&&(user.getSenha().equals("")==true)) {
+            Log.d("teste",s);
+            if(objjson.getString("retorno").equals("true")) {
+                JSONObject jsondados= new JSONObject(objjson.getString("dados"));
+                MainActivity.verificacao = true;
+                Usuario user = new Usuario();
+                user.setNome(jsondados.getString("nome"));
+                user.setTelefone(jsondados.getString("telefone"));
+                user.setLogin(jsondados.getString("login"));
+                user.setSenha(jsondados.getString("senha"));
+                Intent intent = new Intent(this.context, HomeActivity.class);
+                this.context.startActivity(intent);
 
-                ma.verificacao = true;
+
+
+
+                }
+
+            else{
+                Toast.makeText(this.context, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show();
+                //(Activity)this.context.recreate();
 
             }
-            else {
-                ma.verificacao = false;
-            }
-
-
-
-
-
-
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        //txtRetorno.setText(s);
+        /*Log.d("teste1",s);
+        JSONObject objjson = null;*/
+        // try {
+            /*
+            objjson = new JSONObject(s);
+            Log.d("teste",objjson.getString("login"));
+            Usuario user = new Usuario();
+            user.setLogin(objjson.getString("login"));
+
+            user.setSenha(objjson.getString("senha"));*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*} catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
 
 
     }
@@ -155,10 +194,10 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
             //txtRetorno.setText(s);
             progressBar.setVisibility(View.INVISIBLE);
 
-            JSONObject reader = null;
+            JSONObject pbjjson = null;
             try {
-                reader = new JSONObject(s);
-                JSONArray arrayPessoas = reader.getJSONArray("results");
+                pbjjson = new JSONObject(s);
+                JSONArray arrayPessoas = pbjjson.getJSONArray("results");
                 int total=arrayPessoas.length();
 
                 JSONObject primeiro = arrayPessoas.getJSONObject(0);
@@ -171,4 +210,5 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
 
         }*/
     }
+}
 
