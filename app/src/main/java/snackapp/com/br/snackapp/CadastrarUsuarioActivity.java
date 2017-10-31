@@ -39,7 +39,7 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
     public void postUser (View view){
 
 
-        String url = "http://snackapp.tk/usuarioAPI.php";
+        String url = "http://snackapp.esy.es/usuarioAPI.php";
         EditText editnome = (EditText) findViewById(R.id.txnome);
         EditText edittel = (EditText) findViewById(R.id.txtel);
         EditText editlogin = (EditText) findViewById(R.id.txLogin);
