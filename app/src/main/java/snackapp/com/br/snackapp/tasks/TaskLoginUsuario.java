@@ -131,7 +131,7 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
         try {
 
             objjson = new JSONObject(s);
-            Log.d("teste",s);
+            //Log.d("teste",s);
             if(objjson.getString("retorno").equals("true")) {
                 JSONObject jsondados= new JSONObject(objjson.getString("dados"));
                 MainActivity.verificacao = true;
