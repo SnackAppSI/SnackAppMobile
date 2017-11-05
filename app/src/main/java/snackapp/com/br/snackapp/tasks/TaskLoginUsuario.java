@@ -132,9 +132,10 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
 
             objjson = new JSONObject(s);
             //Log.d("teste",s);
+            
             if(objjson.getString("retorno").equals("true")) {
                 JSONObject jsondados= new JSONObject(objjson.getString("dados"));
-                MainActivity.verificacao = true;
+
                 Usuario user = new Usuario();
                 user.setNome(jsondados.getString("nome"));
                 user.setTelefone(jsondados.getString("telefone"));
@@ -150,7 +151,8 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
 
             else{
                 Toast.makeText(this.context, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show();
-                //(Activity)this.context.recreate();
+                /*Activity teste = (Activity) this.context ;
+                teste.recreate();*/
 
             }
         } catch (JSONException e) {
