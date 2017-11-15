@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verLogin(View view) {
-        String url = "http://snackapp.esy.es/loginAPI.php";
+        String url = "http://snackapp.esy.es/loginAPI2.php";
 
         EditText editlogin = (EditText) findViewById(R.id.txtLogin);
         EditText editsenha = (EditText) findViewById(R.id.txtSenha);

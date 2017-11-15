@@ -4,6 +4,8 @@ package snackapp.com.br.snackapp.tasks;
  * Created by moise on 26/10/2017.
  */
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -13,6 +15,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -20,6 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import snackapp.com.br.snackapp.HomeActivity;
+import snackapp.com.br.snackapp.MainActivity;
 import snackapp.com.br.snackapp.classes.Usuario;
 
 
@@ -30,10 +35,12 @@ public class TaskCadastrarUsuario extends AsyncTask<String, Void, String> {
     public String cadtel;
     public String cadlogin;
     public String cadsenha;
+    public Context context;
 
     //public ProgressBar progressBar;
 
-    public TaskCadastrarUsuario(String snome, String stel, String slogin, String ssenha){
+    public TaskCadastrarUsuario(Context context,String snome, String stel, String slogin, String ssenha){
+        this.context = context;
         this.cadnome = snome;
         this.cadtel = stel;
         this.cadlogin = slogin;
@@ -148,7 +155,32 @@ public class TaskCadastrarUsuario extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        JSONObject objjson = null;
+        try {
+            Log.d("teste",s);
+            objjson = new JSONObject(s);
+            //Log.d("teste",s);
 
+            if(objjson.getString("cadastrado").equals("true")) {
+                Toast.makeText(this.context, "Usuario cadastrado", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this.context, MainActivity.class);
+                this.context.startActivity(intent);
+
+
+
+
+            }
+
+            else{
+                Toast.makeText(this.context, "Usuario já cadastrado", Toast.LENGTH_LONG).show();
+                /*Activity teste = (Activity) this.context ;
+                teste.recreate();*/
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
             /* super.onPostExecute(s);
             //txtRetorno.setText(s);

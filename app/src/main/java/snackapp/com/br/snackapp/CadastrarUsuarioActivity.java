@@ -46,12 +46,12 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
         EditText editsenha = (EditText) findViewById(R.id.txsenha);
 
     try {
-        TaskCadastrarUsuario task = new TaskCadastrarUsuario(editnome.getText().toString(),edittel.getText().toString(),editlogin.getText().toString(),editsenha.getText().toString());
+        TaskCadastrarUsuario task = new TaskCadastrarUsuario(this,editnome.getText().toString(),edittel.getText().toString(),editlogin.getText().toString(),editsenha.getText().toString());
         task.execute(url);
-        Toast.makeText(getBaseContext(), "Cadastro Concluido "+ editnome.getText().toString(), Toast.LENGTH_LONG).show();
+
     }catch (Exception e){
         e.printStackTrace();
-        Toast.makeText(getBaseContext(), "Cadastro não realizado", Toast.LENGTH_LONG).show();
+
     }
 
 
