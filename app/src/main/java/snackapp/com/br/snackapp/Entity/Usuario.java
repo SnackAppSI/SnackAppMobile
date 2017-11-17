@@ -1,4 +1,4 @@
-package snackapp.com.br.snackapp.classes;
+package snackapp.com.br.snackapp.Entity;
 
 /**
  * Created by moise on 25/10/2017.

@@ -1,6 +1,5 @@
 package snackapp.com.br.snackapp.tasks;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,8 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import snackapp.com.br.snackapp.HomeActivity;
-import snackapp.com.br.snackapp.MainActivity;
-import snackapp.com.br.snackapp.classes.Usuario;
+import snackapp.com.br.snackapp.Entity.Usuario;
 
 /**
  * Created by moise on 26/10/2017.
@@ -127,6 +125,7 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
+        //Log.d("teste1",s);
         JSONObject objjson = null;
         try {
            // Log.d("teste",s);

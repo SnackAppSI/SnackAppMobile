@@ -23,9 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import snackapp.com.br.snackapp.HomeActivity;
 import snackapp.com.br.snackapp.MainActivity;
-import snackapp.com.br.snackapp.classes.Usuario;
+import snackapp.com.br.snackapp.Entity.Usuario;
 
 
 

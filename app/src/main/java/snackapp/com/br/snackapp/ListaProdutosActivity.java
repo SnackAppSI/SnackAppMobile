@@ -1,5 +1,6 @@
 package snackapp.com.br.snackapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -12,27 +13,45 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import snackapp.com.br.snackapp.Entity.Produto;
+import snackapp.com.br.snackapp.tasks.TaskProdutosMenu;
 
 public class ListaProdutosActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    public ArrayList<Produto> lstProdutos;
+    public String sdesc;
+    public String svalor;
+    public ListView ListP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produtos);
+        //NavigationBar element
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //Inicializando elementos
+        lstProdutos = new   ArrayList<Produto>();
+        ListP = (ListView) findViewById(R.id.listP);
+
+        String url = "http://snackapp.esy.es/produtosMenu.php";
+        TaskProdutosMenu task = new TaskProdutosMenu(this,lstProdutos,ListP);
+        task.execute(url);
+
     }
 
     @Override

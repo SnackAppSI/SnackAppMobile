@@ -1,29 +1,13 @@
 package snackapp.com.br.snackapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.widget.EditText;
-import android.widget.Toast;
-
-import org.json.JSONObject;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-
-import snackapp.com.br.snackapp.classes.Usuario;
 import snackapp.com.br.snackapp.tasks.TaskCadastrarUsuario;
 
 public class CadastrarUsuarioActivity extends AppCompatActivity {
