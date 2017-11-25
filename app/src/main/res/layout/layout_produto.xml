@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="150dp"
-        android:background="#f22a00"
+        android:background="#f7f29500"
         android:textColor="@android:color/background_light"
         android:textSize="20sp" />
 
@@ -23,7 +23,7 @@
         android:id="@+id/cbprod"
         android:layout_width="150dp"
         android:layout_height="25dp"
-        android:background="#f22a00"
+        android:background="#f7f29500"
         android:textColor="@android:color/background_light"
         android:textSize="20sp" />
 

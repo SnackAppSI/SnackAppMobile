@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,11 +50,32 @@ public class ProdutoAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Produto produto = lstProdutos.get(i);
-        view = MInfLater.inflate(R.layout.layout_produto,null);
 
+        final Produto produto = lstProdutos.get(i);
+        view = MInfLater.inflate(R.layout.layout_produto,null);
+        CheckBox cbprod =((CheckBox) view.findViewById(R.id.cbprod));
         ((TextView) view.findViewById(R.id.cbprod)).setText(produto.getDesc().toString());
         ((TextView) view.findViewById(R.id.valorP)).setText(Float.toString(produto.getValor()));
+        cbprod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox checkBox = null;
+                /*for( int count = 0; count < size ;count++){
+                    radio = (RadioButton) viewGroup.getChildAt(count);
+                    radio.setChecked(false);
+                    lstEmpresas.get(count).setChecked(false);
+                }*/
+                checkBox = (CheckBox) view;
+                if (!produto.getChecked()) {
+                    checkBox.setChecked(true);
+                    produto.setChecked(true);
+                } else {
+                    checkBox.setChecked(false);
+                    produto.setChecked(false);
+                }
+                //Log.d("teste",empresa.getChecked().toString());
+            }
+        });
 
 
         return view;

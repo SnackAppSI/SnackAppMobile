@@ -10,15 +10,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import snackapp.com.br.snackapp.Entity.Empresa;
 import snackapp.com.br.snackapp.Entity.Produto;
+import snackapp.com.br.snackapp.tasks.TaskLoginUsuario;
 import snackapp.com.br.snackapp.tasks.TaskProdutosMenu;
+import snackapp.com.br.snackapp.tasks.TaskRealizaPedido;
 
 public class ListaProdutosActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,7 +54,9 @@ public class ListaProdutosActivity extends AppCompatActivity implements Navigati
         ListP = (ListView) findViewById(R.id.listP);
 
         String url = "http://snackapp.esy.es/produtosMenu.php";
-        TaskProdutosMenu task = new TaskProdutosMenu(this,lstProdutos,ListP);
+        Intent it = this.getIntent();
+
+        TaskProdutosMenu task = new TaskProdutosMenu(this,lstProdutos,ListP, it.getIntExtra("id_empresa",0));
         task.execute(url);
 
     }
@@ -122,7 +129,28 @@ public class ListaProdutosActivity extends AppCompatActivity implements Navigati
 
     public void confirmarPedido (View view)
     {
-        Snackbar.make(view, "Pedido realizado com sucesso!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        String url = "http://snackapp.esy.es/realizarPedido.php";
+
+        EditText editlogin = (EditText) findViewById(R.id.txtLogin);
+        EditText editsenha = (EditText) findViewById(R.id.txtSenha);
+
+        TaskRealizaPedido task = new TaskRealizaPedido(this,lstProdutos);
+        task.execute(url);
+        //Intent it = new Intent(this,HomeActivity.class);
+        //int count = 0;
+        /*for (Produto produto: lstProdutos) {
+
+            if(produto.getChecked()){
+                Log.d("teste1234",produto.getChecked().toString()+produto.getIdprod());
+               // it.putExtra("id_produto"+count,produto.getIdprod());
+          //      count++;
+
+            }
+            else {
+                Log.d("teste1234", produto.getChecked().toString() + produto.getIdprod());
+            }
+        }*/
+        //it.putExtra("quant_prod",count);
+        //startActivity(it);
     }
 }

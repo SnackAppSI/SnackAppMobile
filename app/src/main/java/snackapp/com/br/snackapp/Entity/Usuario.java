@@ -6,10 +6,28 @@ package snackapp.com.br.snackapp.Entity;
 
 public class Usuario {
 
+    private int id_cliente;
     private String nome;
     private String telefone;
     private String login;
     private String senha;
+    private String token;
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getNome() {
         return nome;

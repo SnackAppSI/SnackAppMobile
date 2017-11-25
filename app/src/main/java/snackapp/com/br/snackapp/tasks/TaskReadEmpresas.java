@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 import snackapp.com.br.snackapp.Adapter.EmpresaAdapter;
 import snackapp.com.br.snackapp.Adapter.ProdutoAdapter;
+import snackapp.com.br.snackapp.Entity.Empresa;
 import snackapp.com.br.snackapp.Entity.Produto;
 import snackapp.com.br.snackapp.HomeActivity;
 import snackapp.com.br.snackapp.MainActivity;
@@ -33,17 +34,17 @@ import snackapp.com.br.snackapp.MainActivity;
  * Created by moise on 16/11/2017.
  */
 
-public class TaskProdutosMenu extends AsyncTask<String, Void, String> {
-    public ArrayList<Produto> lstProdutos;
+public class TaskReadEmpresas extends AsyncTask<String, Void, String> {
+    public ArrayList<Empresa> lstEmpresas;
     public Context context;
-    public int id_empresa;
-    public ListView ListP;
 
-    public TaskProdutosMenu(Context context, ArrayList<Produto> lstProdutos, ListView ListP, int id_empresa) {
+    public ListView ListE;
+
+    public TaskReadEmpresas(Context context, ArrayList<Empresa> lstEmpresas, ListView ListE) {
         this.context = context;
-        this.lstProdutos = lstProdutos;
-        this.ListP = ListP;
-        this.id_empresa = id_empresa;
+        this.lstEmpresas = lstEmpresas;
+        this.ListE = ListE;
+
 
     }
 
@@ -84,15 +85,19 @@ public class TaskProdutosMenu extends AsyncTask<String, Void, String> {
             cliente.accumulate("login", preferences.getString("login", "null"));
             cliente.accumulate("senha", preferences.getString("senha", "null"));
 
-            JSONObject dados = new JSONObject();
-            dados.accumulate("retorno", preferences.getString("retorno", "null"));
-            dados.accumulate("dados", cliente);
-            dados.accumulate("token", preferences.getString("token", "null"));
-            dados.accumulate("id_empresa", id_empresa);
+            JSONObject jsondados = new JSONObject();
+            jsondados.accumulate("retorno", preferences.getString("retorno", "null"));
+            jsondados.accumulate("dados", cliente);
+            jsondados.accumulate("token", preferences.getString("token", "null"));
 
 
             // 4. convert JSONObject to JSON to String
-            json = dados.toString();
+            json = jsondados.toString();
+//            Log.d("teste123",json);
+
+
+            // 4. convert JSONObject to JSON to String
+            json = jsondados.toString();
 
             // ** Alternative way to convert Person object to JSON string usin Jackson Lib
             // ObjectMapper mapper = new ObjectMapper();
@@ -138,23 +143,22 @@ public class TaskProdutosMenu extends AsyncTask<String, Void, String> {
         JSONObject objjson = null;
         try {
             objjson = new JSONObject(s);
+            //Log.d("teste",s);
 
             if (objjson.getString("retorno").equals("true")) {
+                JSONArray arrayEmpresas = objjson.getJSONArray("lista_empresas");
 
-                JSONArray arrayProdutos = objjson.getJSONArray("lista_produtos");
-                int total = arrayProdutos.length();
-
+                int total = arrayEmpresas.length();
+                //Log.d("teste",String.valueOf(total));
+                //Log.d("teste",arrayEmpresas.toString());
                 for (int i = 0; i < total; i++) {
-                    JSONObject obj = arrayProdutos.getJSONObject(i);
-                    Produto p = new Produto();
-                    p.setIdprod(obj.getInt("id_produto"));
-                    p.setQuant(obj.getInt("quantidade"));
-                    p.setIdemp(obj.getInt("id_empresa"));
-                    p.setDesc(obj.getString("descricao"));
-                    p.setValor((float) obj.getDouble("valor"));
+                    JSONObject obj = arrayEmpresas.getJSONObject(i);
+                    Empresa empresa = new Empresa();
+                    empresa.setId_empresa(obj.getInt("id_empresa"));
+                    empresa.setNome_fant(obj.getString("nome_fant"));
 
 
-                    this.lstProdutos.add(p);
+                    this.lstEmpresas.add(empresa);
 
                 }
 
@@ -167,7 +171,6 @@ public class TaskProdutosMenu extends AsyncTask<String, Void, String> {
                 Toast.makeText(this.context, "Acesso Negado", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this.context, MainActivity.class);
                 this.context.startActivity(intent);
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -178,7 +181,8 @@ public class TaskProdutosMenu extends AsyncTask<String, Void, String> {
 
     private void atualizarListView() {
         //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,android.R.id.text1,nomes);
-        ProdutoAdapter adapter = new ProdutoAdapter(this.lstProdutos, this.context);
-        this.ListP.setAdapter(adapter);
+        EmpresaAdapter adapter = new EmpresaAdapter(this.lstEmpresas, this.context);
+        this.ListE.setAdapter(adapter);
     }
 }
+

@@ -8,11 +8,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.RadioButton;
+
+import java.util.ArrayList;
+
+import snackapp.com.br.snackapp.Entity.Empresa;
+import snackapp.com.br.snackapp.Entity.Produto;
+import snackapp.com.br.snackapp.tasks.TaskProdutosMenu;
+import snackapp.com.br.snackapp.tasks.TaskReadEmpresas;
 
 public class FazerPedidoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    public ArrayList<Empresa> lstEmpresas;
+    public RadioButton rbButton;
+    public ListView ListE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +47,13 @@ public class FazerPedidoActivity extends AppCompatActivity implements Navigation
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        lstEmpresas = new   ArrayList<Empresa>();
+        ListE = (ListView) findViewById(R.id.listE);
+        String url = "http://snackapp.esy.es/readEmpresas.php";
+        TaskReadEmpresas task = new TaskReadEmpresas(this,lstEmpresas,ListE);
+        task.execute(url);
+
     }
 
     @Override
@@ -102,7 +124,14 @@ public class FazerPedidoActivity extends AppCompatActivity implements Navigation
 
     public void proximo (View view)
     {
-        Intent intent = new Intent(this, MenuLanchoneteActivity.class);
-        startActivity(intent);
+        for (Empresa empresa: lstEmpresas) {
+            if(empresa.getChecked()){
+                Intent it = new Intent(this,ListaProdutosActivity.class);
+                it.putExtra("id_empresa",empresa.getId_empresa());
+                startActivity(it);
+            }
+
+        }
+
     }
 }

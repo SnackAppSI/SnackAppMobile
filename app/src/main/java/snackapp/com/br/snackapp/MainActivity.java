@@ -1,6 +1,8 @@
 package snackapp.com.br.snackapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         TaskLoginUsuario task = new TaskLoginUsuario(this,"", "", editlogin.getText().toString(), editsenha.getText().toString());
         task.execute(url);
+
 
 
         //Intent intent = new Intent(this, HomeActivity.class);

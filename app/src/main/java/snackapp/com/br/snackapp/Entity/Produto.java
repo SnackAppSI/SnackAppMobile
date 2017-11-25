@@ -10,6 +10,16 @@ public class Produto {
     private float valor;
     private int quant;
     private int idemp;
+    private Boolean checked=false;
+
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
 
     public int getIdprod() {
         return idprod;

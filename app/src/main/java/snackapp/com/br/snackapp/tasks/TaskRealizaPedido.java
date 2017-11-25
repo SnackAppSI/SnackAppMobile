@@ -12,6 +12,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,29 +20,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
+import snackapp.com.br.snackapp.Entity.Produto;
 import snackapp.com.br.snackapp.HomeActivity;
 import snackapp.com.br.snackapp.Entity.Usuario;
+import snackapp.com.br.snackapp.MainActivity;
 
 /**
  * Created by moise on 26/10/2017.
  */
 
-public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
+public class TaskRealizaPedido extends AsyncTask<String, Void, String> {
 
-    public String cadnome;
-    public String cadtel;
-    public String cadlogin;
-    public String cadsenha;
+    public ArrayList<Produto> lstProdutos;
+
     public Context context;
     //public ProgressBar progressBar;
 
-    public TaskLoginUsuario(Context context,String snome, String stel, String slogin, String ssenha) {
+    public TaskRealizaPedido(Context context, ArrayList<Produto> lstProdutos) {
         this.context = context;
-        this.cadnome = snome;
-        this.cadtel = stel;
-        this.cadlogin = slogin;
-        this.cadsenha = ssenha;
+        this.lstProdutos = lstProdutos;
 
     }
 
@@ -60,12 +59,6 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
 
-        Usuario user = new Usuario();
-
-        user.setNome(cadnome);
-        user.setTelefone(cadtel);
-        user.setLogin(cadlogin);
-        user.setSenha(cadsenha);
         InputStream inputStream = null;
         String result = "";
         try {
@@ -76,18 +69,41 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
             // 2. make POST request to the given URL
             HttpPost httpPost = new HttpPost(params[0]);
 
+            SharedPreferences preferences = this.context.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+
             String json = "";
 
-            // 3. build jsonObject
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("nome", user.getNome().toString());
-            jsonObject.accumulate("telefone", user.getTelefone());
-            jsonObject.accumulate("login", user.getLogin());
-            jsonObject.accumulate("senha", user.getSenha());
+            // 3. build cliente
+            JSONObject cliente = new JSONObject();
+            cliente.accumulate("id_cliente", preferences.getInt("id_cliente", 0));
+            cliente.accumulate("nome", preferences.getString("nome", "null"));
+            cliente.accumulate("telefone", preferences.getString("telefone", "null"));
+            cliente.accumulate("login", preferences.getString("login", "null"));
+            cliente.accumulate("senha", preferences.getString("senha", "null"));
+
+            JSONArray lista_produtos = new JSONArray();
+            int count =0;
+            for (Produto prod : lstProdutos) {
+                JSONObject id_produto = new JSONObject();
+
+                if (prod.getChecked()) {
+                    id_produto.accumulate("id_produto", prod.getIdprod());
+                    lista_produtos.put(count,id_produto);
+                    count++;
+                }
+
+
+            }
+
+            JSONObject jsondados = new JSONObject();
+            jsondados.accumulate("retorno", preferences.getString("retorno", "null"));
+            jsondados.accumulate("dados", cliente);
+            jsondados.accumulate("token", preferences.getString("token", "null"));
+            jsondados.accumulate("lista_produtos", lista_produtos);
 
             // 4. convert JSONObject to JSON to String
-            json = jsonObject.toString();
-
+            json = jsondados.toString();
+            //Log.d("testando",json);
             // ** Alternative way to convert Person object to JSON string usin Jackson Lib
             // ObjectMapper mapper = new ObjectMapper();
             // json = mapper.writeValueAsString(person);
@@ -129,44 +145,26 @@ public class TaskLoginUsuario extends AsyncTask<String, Void, String> {
         //Log.d("teste1",s);
         JSONObject objjson = null;
         try {
-           // Log.d("teste",s);
+            // Log.d("teste",s);
             objjson = new JSONObject(s);
             //Log.d("teste",s);
 
-            if(objjson.getString("retorno").equals("true")) {
-                JSONObject jsondados= new JSONObject(objjson.getString("dados"));
+            if (objjson.getString("retorno").equals("true")) {
 
-                Usuario user = new Usuario();
-                user.setId_cliente(jsondados.getInt("id_cliente"));
-                user.setNome(jsondados.getString("nome"));
-                user.setTelefone(jsondados.getString("telefone"));
-                user.setLogin(jsondados.getString("login"));
-                user.setSenha(jsondados.getString("senha"));
-
-                SharedPreferences preferences = this.context.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-                SharedPreferences.Editor ed = preferences.edit();
-
-                ed.putInt("id_cliente",user.getId_cliente());
-                ed.putString("nome",user.getNome());
-                ed.putString("telefone",user.getTelefone());
-                ed.putString("login",user.getLogin());
-                ed.putString("senha",user.getSenha());
-                ed.putString("token",objjson.getString("token"));
-                ed.putString("retorno",objjson.getString("retorno"));
-                ed.apply();
 
                 Intent intent = new Intent(this.context, HomeActivity.class);
                 this.context.startActivity(intent);
 
 
+                Toast.makeText(this.context, "Pedido Realizado", Toast.LENGTH_LONG).show();
 
-
-                }
-
-            else{
-                Toast.makeText(this.context, "Usuario ou senha invalidos", Toast.LENGTH_LONG).show();
-                /*Activity teste = (Activity) this.context ;
-                teste.recreate();*/
+            } else {
+                SharedPreferences preferences = this.context.getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor ed = preferences.edit();
+                ed.clear();
+                Toast.makeText(this.context, "Acesso Negado", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this.context, MainActivity.class);
+                this.context.startActivity(intent);
 
             }
         } catch (JSONException e) {
