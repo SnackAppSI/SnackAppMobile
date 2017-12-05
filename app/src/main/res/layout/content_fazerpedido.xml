@@ -42,7 +42,8 @@
                 <ListView
                     android:id="@+id/listE"
                     android:layout_width="180dp"
-
+                    android:choiceMode="singleChoice"
+                    android:descendantFocusability="beforeDescendants"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="70dp"
                     android:textAlignment="center" />

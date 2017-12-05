@@ -30,14 +30,25 @@ public class EmpresaAdapter extends BaseAdapter {
     private LayoutInflater MInfLater;
     private ArrayList<Empresa> lstEmpresas;
     private Context context;
-
+    private int selecionado = -1;
+    private ListView ListE;
     public EmpresaAdapter(){}
-    public EmpresaAdapter(ArrayList<Empresa> lstEmpresas, Context context){
+    public EmpresaAdapter(ArrayList<Empresa> lstEmpresas, Context context,ListView ListeE){
         this.lstEmpresas = lstEmpresas;
         this.context = context;
         this.MInfLater = LayoutInflater.from(context);
+        this.ListE = ListeE;
 
     }
+
+    public int getSelecionado() {
+        return selecionado;
+    }
+
+    public void setSelecionado(int selecionado) {
+        this.selecionado = selecionado;
+    }
+
     @Override
     public int getCount() {
         return this.lstEmpresas.size();
@@ -54,7 +65,7 @@ public class EmpresaAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, final ViewGroup viewGroup) {
+    public View getView(final int i, View view, final ViewGroup viewGroup) {
   //      final int pos = i;
 //        final int size = viewGroup.getChildCount();
         //((ListView) view.findViewById(R.id.listE)).setAdapter(new ArrayAdapter<Empresa>(context,android.R.layout.simple_list_item_single_choice, lstEmpresas));
@@ -64,23 +75,36 @@ public class EmpresaAdapter extends BaseAdapter {
         ((RadioButton) view.findViewById(R.id.rbEmp)).setText(empresa.getNome_fant().toString());
 //        Log.d("teste1",String.valueOf(size));
 //        Log.d("teste2",String.valueOf(i));
+
+        if(selecionado == i){
+            rbemp.setChecked(true);
+
+            empresa.setChecked(true);
+        }
+        else{
+            rbemp.setChecked(false);
+            empresa.setChecked(false);
+        }
+
         rbemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioButton radio = null;
+                //RadioButton radio = null;
                 /*for( int count = 0; count < size ;count++){
                     radio = (RadioButton) viewGroup.getChildAt(count);
                     radio.setChecked(false);
                     lstEmpresas.get(count).setChecked(false);
                 }*/
-                radio = (RadioButton) view;
-                if (!empresa.getChecked()) {
+                setSelecionado(i);
+                //radio = (RadioButton) view;
+            /*    if (!empresa.getChecked()) {
                     radio.setChecked(true);
-                    empresa.setChecked(true);
+                //    empresa.setChecked(true);
                 } else {
                     radio.setChecked(false);
-                    empresa.setChecked(false);
-                }
+                  //  empresa.setChecked(false);
+                }*/
+                notifyDataSetChanged();
                 //Log.d("teste",empresa.getChecked().toString());
             }
         });

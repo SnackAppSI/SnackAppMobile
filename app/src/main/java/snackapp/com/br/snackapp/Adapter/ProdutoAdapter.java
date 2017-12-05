@@ -25,6 +25,7 @@ public class ProdutoAdapter extends BaseAdapter {
     private LayoutInflater MInfLater;
     private ArrayList<Produto> lstProdutos;
     private Context context;
+    private int selecionado = -1;
 
     public ProdutoAdapter(){}
     public ProdutoAdapter(ArrayList<Produto> lstProdutos,Context context){
@@ -33,6 +34,15 @@ public class ProdutoAdapter extends BaseAdapter {
         this.MInfLater = LayoutInflater.from(context);
 
     }
+
+    public int getSelecionado() {
+        return selecionado;
+    }
+
+    public void setSelecionado(int selecionado) {
+        this.selecionado = selecionado;
+    }
+
     @Override
     public int getCount() {
         return this.lstProdutos.size();

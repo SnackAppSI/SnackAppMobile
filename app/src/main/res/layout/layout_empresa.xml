@@ -18,6 +18,9 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="11dp"
         android:textSize="20sp"
+        android:focusable="false"
+        android:clickable="false"
+        android:checked="false"
         android:background="#f7f29500"
         android:text="RadioButton"
         android:textColor="@android:color/background_light" />

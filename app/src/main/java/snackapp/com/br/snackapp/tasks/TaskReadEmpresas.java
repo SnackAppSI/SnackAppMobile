@@ -181,7 +181,7 @@ public class TaskReadEmpresas extends AsyncTask<String, Void, String> {
 
     private void atualizarListView() {
         //  ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1,android.R.id.text1,nomes);
-        EmpresaAdapter adapter = new EmpresaAdapter(this.lstEmpresas, this.context);
+        EmpresaAdapter adapter = new EmpresaAdapter(this.lstEmpresas, this.context, ListE);
         this.ListE.setAdapter(adapter);
     }
 }

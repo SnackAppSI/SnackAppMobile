@@ -50,6 +50,7 @@ public class FazerPedidoActivity extends AppCompatActivity implements Navigation
 
         lstEmpresas = new   ArrayList<Empresa>();
         ListE = (ListView) findViewById(R.id.listE);
+
         String url = "http://snackapp.esy.es/readEmpresas.php";
         TaskReadEmpresas task = new TaskReadEmpresas(this,lstEmpresas,ListE);
         task.execute(url);
